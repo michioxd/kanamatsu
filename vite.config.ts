@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import postCssRemoveComments from "postcss-discard-comments";
 import viteCompression from "vite-plugin-compression";
 import { ViteMinifyPlugin } from "vite-plugin-minify";
+import { VitePWA } from "vite-plugin-pwa";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split(""),
     nameMap = new Map();
@@ -30,6 +31,33 @@ export default defineConfig({
             ignoreCustomComments: [],
         }),
         viteCompression(),
+        VitePWA({
+            registerType: "autoUpdate",
+            manifest: {
+                name: "kanamatsu",
+                short_name: "kanamatsu",
+                description: "a simple app to learn kana",
+                theme_color: "#1d1b20",
+                icons: [
+                    {
+                        src: "pwa-192x192.png",
+                        sizes: "192x192",
+                        type: "image/png",
+                    },
+                    {
+                        src: "pwa-512x512.png",
+                        sizes: "512x512",
+                        type: "image/png",
+                    },
+                    {
+                        src: "maskable-icon-512x512.png",
+                        sizes: "512x512",
+                        type: "image/png",
+                        purpose: "maskable",
+                    },
+                ],
+            },
+        }),
     ],
     css:
         process.env.NODE_ENV === "production"
