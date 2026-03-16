@@ -105,9 +105,7 @@ export class Kanamatsu extends LitElement {
         return html`
             <mdui-layout>
                 <mdui-top-app-bar color="primary">
-                    <mdui-top-app-bar-title scroll-behavior="elevate" scroll-target=${"." + styles.main}
-                        >kanamatsu</mdui-top-app-bar-title
-                    >
+                    <mdui-top-app-bar-title>kanamatsu</mdui-top-app-bar-title>
                     <mdui-dropdown placement="bottom-end" trigger="click">
                         <mdui-button-icon
                             slot="trigger"
@@ -133,7 +131,6 @@ export class Kanamatsu extends LitElement {
                         ></mdui-button-icon>
                     </mdui-tooltip>
                 </mdui-top-app-bar>
-
                 <mdui-layout-main class=${styles.main}>
                     <div class=${this.pageClass("learn")}>
                         <kana-learn-page
@@ -673,6 +670,13 @@ export class Kanamatsu extends LitElement {
             this.practiceOptions = [];
         }
 
+        if (this.practiceMode === "writing") {
+            void this.updateComplete.then(() => {
+                const input = this.renderRoot.querySelector(`.${styles.writingField}`) as HTMLInputElement | null;
+                input?.focus();
+            });
+        }
+
         this.requestUpdate();
     }
 
@@ -721,6 +725,10 @@ export class Kanamatsu extends LitElement {
 
     private readonly checkWritingAnswer = (): void => {
         if (!this.currentPracticeItem) return;
+
+        if (this.practiceInputValue.trim() === "") {
+            return;
+        }
 
         if (this.practiceInputValue.trim().toLowerCase() === this.currentPracticeItem.romaji) {
             this.showToast(this.t("toast_correct"));

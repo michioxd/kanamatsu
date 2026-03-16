@@ -195,7 +195,11 @@ export class PracticePage extends LitElement {
                                   @keypress=${this.onPracticeKeyPress}
                               ></mdui-text-field>
                               <div class=${styles.mt4}>
-                                  <mdui-button variant="filled" @click=${this.onCheckWritingAnswer}>
+                                  <mdui-button
+                                      variant="filled"
+                                      @click=${this.onCheckWritingAnswer}
+                                      ?disabled=${this.practiceInputValue.trim() === ""}
+                                  >
                                       ${this.t("btn_check")}
                                   </mdui-button>
                               </div>
