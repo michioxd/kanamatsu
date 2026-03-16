@@ -802,7 +802,7 @@ export class Kanamatsu extends LitElement {
     };
 
     private startMatchGame(learned: KanaItem[]): void {
-        const selected = sampleUnique(learned, 5);
+        const selected = sampleUnique(learned, 10);
         this.matchTotalPairs = selected.length;
         this.matchPairsFound = 0;
         this.matchSelectedIndex = null;
