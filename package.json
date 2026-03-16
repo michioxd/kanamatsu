@@ -1,0 +1,32 @@
+{
+    "name": "kanamatsu",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "format": "bunx --bun prettier --write ."
+    },
+    "devDependencies": {
+        "@types/node": "^25.5.0",
+        "postcss-discard-comments": "^7.0.6",
+        "prettier": "^3.8.1",
+        "sass": "^1.98.0",
+        "terser": "^5.46.0",
+        "typescript": "~5.9.3",
+        "vite": "^8.0.0",
+        "vite-plugin-compression": "^0.5.1",
+        "vite-plugin-minify": "^2.1.0"
+    },
+    "dependencies": {
+        "@fontsource/google-sans-flex": "^5.2.2",
+        "@fontsource/material-icons": "^5.2.7",
+        "@fontsource/material-icons-outlined": "^5.2.6",
+        "@fontsource/noto-serif-jp": "^5.2.8",
+        "clsx": "^2.1.1",
+        "lit": "^3.3.2",
+        "mdui": "^2.1.4"
+    }
+}
