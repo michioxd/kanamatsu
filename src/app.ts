@@ -304,6 +304,15 @@ export class Kanamatsu extends LitElement {
                         <a href="https://michioxd.ch" target="_blank">michioxd</a> powered</small
                     ><br />
                     <small>built with TypeScript, MDUI, Lit, and Vite</small>
+                    <br />
+                    <mdui-button
+                        href="//github.com/michioxd/kanamatsu"
+                        target="_blank"
+                        title="GitHub Repository"
+                        variant="outlined"
+                    >
+                        GitHub Repository
+                    </mdui-button>
                 </div>
             </div>
         `;
